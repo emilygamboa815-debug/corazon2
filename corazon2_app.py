@@ -27,23 +27,22 @@ html_template = """
   body {
     background-color: #000000;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    padding: 20px;
+    text-align: center;
   }
   canvas {
-    background: #000000;
+    background-color: #000000;
+    display: block;
+    margin: 0 auto;
   }
 </style>
 </head>
 <body>
-<canvas id="canvas" width="600" height="600"></canvas>
+<canvas id="canvas" width="500" height="500"></canvas>
 <script>
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  const customText = "{palabra}";
+  const customText = USER_TEXT_JSON;
   let angle = 0;
 
   function animate() {
@@ -58,7 +57,7 @@ html_template = """
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = #ffffff";
-    ctx.shadowBlur = 6;
+    ctx.shadowBlur = 10;
     ctx.shadowColor = "#ff3366";
     
     for (let i = 0; i < numPoints; i++) {
@@ -67,8 +66,8 @@ html_template = """
       let x = 16 * Math.pow(Math.sin(t),3);
       let y = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
 
-      x *= 18;
-      y *= 18;
+      x *= 15;
+      y *= 15;
 
       let char = customText[i % customText.length];
       ctx.fillText(char, x, y);
@@ -84,5 +83,5 @@ html_template = """
 </html>
 """
 
-html_code = html_template.replace("PALABRA_USUARIO", palabra)
-st.components.v1.html(html_code, height=620)
+html_code = html_template.replace("USER_TEXT_JSON", json.dumps (palabra))
+st.components.v1.html(html_code, height=560, scrolling=False)
