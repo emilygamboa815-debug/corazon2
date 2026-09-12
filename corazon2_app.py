@@ -13,9 +13,9 @@ st.markdown("""
 st.markdown("<h1 style='text-align: center; color: #ff3366;'> Corazón Giratorio Interactivo</h1>", unsafe_allow_html=True)
 
 # Cuadro para que cualquier persona pued cambiar la frase desde la web
-frase_usuario = st.text_input("Escribe tu palabra o frase:", "I love you")
-if not frase_usuario:
-    frase_usuario = "I love you"
+palabra = st.text_input("Escribe tu palabra o frase:", "I love you")
+if not palabra:
+    palabra = "I love you"
 
 # Generación del componente visual optimizado para la web
 html_template = """
@@ -29,7 +29,7 @@ html_template = """
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 450vh;
+    height: 100vh;
     overflow: hidden;
   }
   canvas {
@@ -83,5 +83,5 @@ html_template = """
 </html>
 """
 
-html_code = html_template.replace("frase_usuario", frase_usuario)
-st.components.v1.html(html_code, height=520)
+html_code = html_template.replace("PALABRA_USUARIO", palabra)
+st.components.v1.html(html_code, height=620)
