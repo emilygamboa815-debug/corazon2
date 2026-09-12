@@ -42,7 +42,7 @@ html_template = """
 <script>
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
-  const customText = "{frase_usuario}";
+  const customText = "{palabra}";
   let angle = 0;
 
   function animate() {
@@ -56,9 +56,9 @@ html_template = """
     ctx.font = "bold 18px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = #3399ff";
+    ctx.fillStyle = #ffffff";
     ctx.shadowBlur = 6;
-    ctx.shadowColor = "#00ffff";
+    ctx.shadowColor = "#ff3366";
     
     for (let i = 0; i < numPoints; i++) {
       let t = (i / numPoints) * 2 * Math.PI;
