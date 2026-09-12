@@ -83,5 +83,5 @@ html_template = """
 </html>
 """
 
-html_code = html_template.replace("PALABRA_USUARIO", frase_usuario)
+html_code = html_template.replace("frase_usuario", frase_usuario)
 st.components.v1.html(html_code, height=520)
